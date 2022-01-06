@@ -1,6 +1,6 @@
 
 # 碱基序列反向互补
-'''python
+```python
 def revcomp(seq):
     """ 碱基序列反向互补 """
     set_all = set('ATCGatcgRYMKrymkVBHDvbhd')
@@ -11,5 +11,5 @@ def revcomp(seq):
     seq = seq[::-1]
     return seq.translate( str.maketrans( "ACGTacgtRYMKrymkVBHDvbhd",
                                          "TGCAtgcaYRKMyrkmBVDHbvdh"))
-'''
+```
 
