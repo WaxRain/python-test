@@ -33,7 +33,7 @@ def readfasta(fname):
 if __name__ == "__main__":
     import sys
     for name, seq in readfasta(sys.argv[1]):
-        print(n, name, len(seq))
+        print(name, len(seq))
 ```
 
 # 读取fasta文件(效率基本相同)
@@ -62,5 +62,5 @@ def readFasta(fname):
 if __name__ == "__main__":
     import sys
     for name, seq in readFasta(sys.argv[1]):
-        print(n, name, len(seq))
+        print(name, len(seq))
 ```
