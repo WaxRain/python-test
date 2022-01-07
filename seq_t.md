@@ -64,3 +64,23 @@ if __name__ == "__main__":
     for name, seq in readFasta(sys.argv[1]):
         print(name, len(seq))
 ```
+
+
+# N50
+```python
+def icumsum(arr):
+    total = 0
+    for i, x in enumerate(arr):
+        total += x
+        yield i, total
+
+def N50(arr):
+    """ 一组数的N50位置 """
+    if not isinstance(arr, list):
+        arr = list(arr)
+    arr.sort()
+    s = sum(arr)
+    return int(arr[[i for i, c in icumsum(arr) if c >= s*0.5][0]])
+
+print(N50(range(100)))
+```
