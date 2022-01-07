@@ -43,6 +43,22 @@ print(config)
 
 ```
 
+### 创建并写入Yaml
+```python
+import yaml
+### 创建config
+config = {}
+config['name'] = 'mdb'
+config["memory"] = {'total': 13190108, 'available': 11745396}
+config['IP'] = "192.168.168.138"
+config['CPU'] = 4
+config['user'] = ['user1', 'user2']
+
+with open('config.yaml', 'w', encoding="utf-8") as fh:
+    yaml.dump(config, fh, allow_unicode=True)
+
+```
+
 
 # Perl读取INI文件 (二维哈希)
 ```perl
