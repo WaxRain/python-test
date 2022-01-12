@@ -13,6 +13,23 @@ def revcomp(seq):
                                          "TGCAtgcaYRKMyrkmBVDHbvdh"))
 ```
 
+# 计算序列中GC含量
+```python
+
+from collections import Counter
+def gc_percence(seq):
+    stat = dict(Counter(seq.upper()))
+
+    gc_num = stat['G'] + stat['C']
+    atcg_num = stat['G'] + stat['C'] + stat['A'] + stat['T']
+
+    gc1 = gc_num / len(seq)   # 涵盖序列中 N
+    gc2 = gc_num / atcg_num   # 除去N
+    print(gc1, gc2)
+
+```
+
+
 # 读取fasta文件
 ```python
 def readfasta(fname):
