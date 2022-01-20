@@ -65,6 +65,59 @@ if __name__ == "__main__":
         print(name, len(seq))
 ```
 
+# 读取fastq文件
+
+```python
+import gzip
+
+#fastq.reader
+class Reader:
+    def __init__(self, fname):
+        self.__file = None
+        self.__eof = False
+        self.filename = fname
+
+        fopen= gzip.open if self.filename.endswith(".gz") else open
+        self.__file = fopen(self.filename, "r")
+        if self.__file == None:
+            print("Failed to open file " + self.filename)
+            sys.exit(1)
+
+    def __del__(self):
+        if self.__file != None:
+            self.__file.close()
+
+    def nextRead(self):
+        if self.__eof == True or self.__file == None:
+            return None
+
+        lines = []
+        for i in range(0,4):
+            line = self.__file.readline().rstrip()
+            if len(line) == 0:
+                self.__eof = True
+                return None
+            lines.append(line)
+        return lines
+
+    def isEOF(self):
+        return False
+
+if __name__ == "__main__":
+    import sys
+    file = sys.argv[1]
+    n, slen, qlen = 0, 0, 0
+    reader = Reader(file)
+
+    while True:
+        read = reader.nextRead()
+        if read is None: break
+        n += 1
+        slen += len(read[1])
+        qlen += len(read[3])
+    print(n, slen, qlen)
+
+```
 
 # N50
 ```python
