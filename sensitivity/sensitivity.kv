@@ -1,0 +1,83 @@
+#:kivy 2.0.0
+
+<CustButton@Button>:
+    font_size: 20
+    size: 147, 60
+    size_hint: None, None
+
+<TextInput>:
+    font_size: 28
+
+<Sensitivity>:
+    id: table
+    rows: 10
+    padding: 6
+    spacing: 2
+
+    BoxLayout:
+        CustButton:
+            text: ""
+        CustButton:
+            text: "检出"
+        CustButton:
+            text: "未检出"
+        CustButton:
+            text: "总计"
+
+    BoxLayout:
+        CustButton:
+            text: "阳性"
+        TextInput:
+            id: pos_y
+
+        TextInput:
+            id: pos_n
+        TextInput:
+            id: pos
+
+    BoxLayout:    
+        CustButton:
+            text: "阴性"
+        TextInput:
+            id: neg_y
+
+        TextInput:
+            id: neg_n
+        TextInput:
+            id: neg
+    
+    BoxLayout:
+        CustButton:
+            text: "总样本量"
+        TextInput:
+            id: sample_num
+    BoxLayout:
+        CustButton:
+            text: "敏感性"
+        TextInput:
+            id: sens
+    BoxLayout:
+        CustButton:
+            text: "假阳性率"
+        TextInput:
+            id: pesu_pos
+    BoxLayout:
+        CustButton:
+            text: "假阴性率"
+        TextInput:
+            id: pesu_neg
+    BoxLayout:
+        CustButton:
+            text: "特异性"
+        TextInput:
+            id: specification
+    BoxLayout:
+        CustButton:
+            text: "PPV"
+        TextInput:
+            id: PPV
+    BoxLayout:
+        CustButton:
+            text: "NPV"
+        TextInput:
+            id: NPV  
