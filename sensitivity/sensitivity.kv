@@ -15,6 +15,7 @@
     spacing: 2
 
     BoxLayout:
+        id: header
         CustButton:
             text: ""
         CustButton:
@@ -25,26 +26,32 @@
             text: "总计"
 
     BoxLayout:
+        id: pLine
         CustButton:
             text: "阳性"
-        TextInput:
+        FloatInput:
             id: pos_y
 
-        TextInput:
+        FloatInput:
             id: pos_n
-        TextInput:
+        FloatInput:
             id: pos
 
-    BoxLayout:    
+    BoxLayout:
+        id: nLine  
         CustButton:
             text: "阴性"
-        TextInput:
+        FloatInput:
             id: neg_y
+            text: "0"
 
-        TextInput:
+        FloatInput:
             id: neg_n
-        TextInput:
+            text: "0"
+        FloatInput:
             id: neg
+            text: "0"
+            on_text: app.process()
     
     BoxLayout:
         CustButton:
@@ -60,12 +67,13 @@
         CustButton:
             text: "假阳性率"
         TextInput:
-            id: pesu_pos
+            id: fpr
     BoxLayout:
         CustButton:
             text: "假阴性率"
-        TextInput:
-            id: pesu_neg
+        Button:
+            id: fnr
+            # text: str(float(root.ids.neg_n.text) / float(root.ids.neg.text))
     BoxLayout:
         CustButton:
             text: "特异性"
