@@ -6,6 +6,7 @@ class GameObject(object):
     def __init__(self, canvas, item):
         self.canvas = canvas
         self.item = item
+        # print(self.item)
     
     def get_position(self):
         return self.canvas.coords(self.item)
@@ -23,6 +24,7 @@ class Ball(GameObject):
         item = canvas.create_oval(x-self.radius, y-self.radius,
                                     x+self.radius, y+self.radius,
                                     fill="white")
+
         super(Ball, self).__init__(canvas, item)
 
     def update(self):
@@ -118,7 +120,7 @@ class PongGame(tk.Frame):
 
         self.items = {}
         self.ball = None
-        self.paddle = Paddle(self.canvas, self.width/2, 326)
+        self.paddle = Paddle(self.canvas, self.width/2, 426)
         self.items[self.paddle.item] = self.paddle
         for x in range(5, self.width-5, 75):
             self.add_brick(x+37.5, 50, 2)
@@ -142,7 +144,7 @@ class PongGame(tk.Frame):
             self.ball.delete()
         paddle_coords = self.paddle.get_position()
         x = (paddle_coords[0] + paddle_coords[2]) * 0.5
-        self.ball = Ball(self.canvas, x, 310)
+        self.ball = Ball(self.canvas, x, 410)
         self.paddle.set_ball(self.ball)
     
     def add_brick(self, x, y, hits):
@@ -194,4 +196,3 @@ if __name__ == "__main__":
     root.title("Hello, Pong!")
     game = PongGame(root)
     game.mainloop()
-    # print(game.canvas.winfo_width())
