@@ -1,13 +1,10 @@
-from logging import root
 import tkinter as tk
-from tkinter import font
+
 
 class GameObject(object):
     def __init__(self, canvas, item):
         self.canvas = canvas
         self.item = item
-        # print(self.item)
-    
     def get_position(self):
         return self.canvas.coords(self.item)
     def move(self, x, y):
@@ -66,7 +63,7 @@ class Paddle(GameObject):
                                         y - self.height / 2,
                                         x + self.width / 2,
                                         y + self.height / 2,
-                                        fill = "blue")
+                                        fill="blue")
         super(Paddle, self).__init__(canvas, item)
     
     def set_ball(self, ball):
